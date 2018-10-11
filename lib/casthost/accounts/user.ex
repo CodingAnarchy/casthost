@@ -19,7 +19,7 @@ defmodule Casthost.Accounts.User do
     |> unique_constraint(:username)
     end
 
-  def registration_changeset(%User{} = user, attrs) do
+  def registration_changeset(user, attrs) do
     user
     |> cast(attrs, [:name, :username, :password])
     |> validate_required([:name, :username, :password])

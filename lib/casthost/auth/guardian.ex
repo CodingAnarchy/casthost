@@ -12,7 +12,7 @@ defmodule Casthost.Auth.Guardian do
 
   def resource_from_claims(claims) do
     id = claims["sub"]
-    user = Accounts.get_user(id)
+    user = Accounts.get_user!(id)
     {:ok, user}
   end
 end
