@@ -13,11 +13,23 @@ defmodule CasthostWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug Casthost.Auth.AuthAccessPipeline
+  end
+
   scope "/", CasthostWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/users", UserController
+    resources "/users", UserController, only: [:new, :create]
+    resources "/sessions", SessionController, only: [:new, :create]
+  end
+
+  scope "/", CasthostWeb do
+    pipe_through [:browser, :auth]
+
+    resources "/users", UserController, only: [:index, :show]
+    resources "/sessions", SessionController, only: [:delete]
   end
 
   # Other scopes may use custom stacks.

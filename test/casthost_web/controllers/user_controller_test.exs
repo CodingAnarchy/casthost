@@ -4,7 +4,7 @@ defmodule CasthostWeb.UserControllerTest do
   alias Casthost.Accounts
 
   @create_attrs %{name: "some name", password: "some password", username: "some username"}
-  @update_attrs %{name: "some updated name", password: "some updated password", username: "some updated username"}
+  @update_attrs %{name: "some updated name"}
   @invalid_attrs %{name: nil, password: nil, username: nil}
 
   def fixture(:user) do

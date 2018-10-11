@@ -20,6 +20,7 @@ defmodule CasthostWeb.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
       import CasthostWeb.Router.Helpers
+      import Casthost.Factory
 
       # The default endpoint for testing
       @endpoint CasthostWeb.Endpoint
